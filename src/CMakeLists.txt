@@ -791,6 +791,7 @@ set (PCH_SOURCES
 	ct_chat.cpp
 	d_iwad.cpp
 	d_main.cpp
+	twitch_bridge.cpp
 	d_defcvars.cpp
 	d_anonstats.cpp
 	d_net.cpp

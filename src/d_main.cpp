@@ -188,6 +188,8 @@ bool OkForLocalization(FTextureID texnum, const char* substitute);
 // PRIVATE FUNCTION PROTOTYPES ---------------------------------------------
 
 void D_DoomLoop ();
+void TwitchBridge_Init();
+void TwitchBridge_Poll();
 
 // EXTERNAL DATA DECLARATIONS ----------------------------------------------
 
@@ -1244,11 +1246,13 @@ void D_DoomLoop ()
 	Advisory.SetInvalid();
 
 	vid_cursor->Callback();
+	TwitchBridge_Init();
 
 	for (;;)
 	{
 		try
 		{
+			TwitchBridge_Poll();
 			GStrings.SetDefaultGender(players[consoleplayer].userinfo.GetGender()); // cannot be done when the CVAR changes because we don't know if it's for the consoleplayer.
 
 			// frame syncronous IO operations
